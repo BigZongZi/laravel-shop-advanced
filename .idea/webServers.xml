@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4ce2181d-408c-4c19-b363-f072f0ec043b" name="laravel-shop">
+        <fileTransfer rootFolder="/home/leo" accessType="SFTP" host="120.77.1.159" port="22" sshConfigId="82c84bff-96a7-410b-b61d-f7eba2cf4978" sshConfig="myHost">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
