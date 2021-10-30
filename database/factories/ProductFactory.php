@@ -23,9 +23,12 @@ class ProductFactory extends Factory
             "https://cdn.learnku.com/uploads/images/201806/01/5320/2JMRaFwRpo.jpg",
             "https://cdn.learnku.com/uploads/images/201806/01/5320/pa7DrV43Mw.jpg",
         ]);
+        //从数据库中随机取一个类目
+        $category = \App\Models\Category::query()->where('is_directory',false)->inRandomOrder()->first();
 
         return [
             'title'        => $this->faker->word,
+            'long_title'   => $this->faker->sentence,
             'description'  => $this->faker->sentence,
             'image'        => $image,
             'on_sale'      => true,
@@ -33,6 +36,7 @@ class ProductFactory extends Factory
             'sold_count'   => 0,
             'review_count' => 0,
             'price'        => 0,
+            'category_id'  => $category ? $category->id : null,
         ];
     }
 }
