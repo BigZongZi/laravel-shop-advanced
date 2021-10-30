@@ -12,3 +12,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /resources/wechat_pay
+.idea/.gitignore
+.idea/php.xml
+.idea/vcs.xml
+.idea/workspace.xml
