@@ -13,6 +13,7 @@ use App\Models\CouponCode;
 use App\Exceptions\CouponCodeUnavailableException;
 use App\Jobs\RefundInstallmentOrder;
 use App\Exceptions\InternalException;
+use Illuminate\Support\Facades\Redis;
 
 class OrderService
 {
@@ -220,7 +221,7 @@ class OrderService
             $item->product()->associate($sku->product_id);
             $item->productSku()->associate($sku);
             $item->save();
-
+            Redis::decr('seckill_sku_'.$sku->id);
             return $order;
         });
         // 秒杀订单的自动关闭时间与普通订单不同

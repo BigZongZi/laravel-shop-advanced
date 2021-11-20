@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store')->middleware('random_drop:80');
 Route::get('/', 'PagesController@root')->name('root');
 
 Auth::routes();
@@ -46,7 +47,6 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('installments/{installment}', 'InstallmentsController@show')->name('installments.show');
     Route::get('installments/{installment}/alipay', 'InstallmentsController@payByAlipay')->name('installments.alipay');
     Route::get('installments/alipay/return', 'InstallmentsController@alipayReturn')->name('installments.alipay.return');
-    Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store');
 });
 // 后端回调不能放在 auth 中间件中
 Route::post('installments/alipay/notify', 'InstallmentsController@alipayNotify')->name('installments.alipay.notify');
